@@ -3,4 +3,11 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="title_addItem">Add item</string>
+    <string name="add_item">Добавить новый товар</string>
+    <string name="enter_item_name">Введите название товара</string>
+    <string name="enter_item_price">Введите цену товара</string>
+    <string name="val">Количество</string>
+    <string name="enter_description">Введите описание товара</string>
+    <string name="item_images">Фотографии товара</string>
 </resources>
