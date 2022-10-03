@@ -1,5 +1,6 @@
 package com.example.shoesapp.View.Adapters;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import com.example.shoesapp.MainActivity;
 import com.example.shoesapp.databinding.FragmentHomeBinding;
 import com.example.shoesapp.databinding.ItemListElementBinding;
 import com.google.gson.Gson;
+import com.squareup.picasso.Picasso;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -44,7 +46,9 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemVi
                 System.out.println("123");
             }
         });
-
+        Picasso.with(mActivity.getApplicationContext())
+                        .load(data.get(position).getImg().get(0))
+                                .into(holder.binding.cardImageView);
         holder.binding.itemName.setText(data.get(position).getName());
         holder.binding.itemPrice.setText(data.get(position).getPrice()+"");
         if(data.get(position).getImg() != null && !data.get(position).getImg().isEmpty()){
@@ -68,8 +72,10 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemVi
 
     class ItemViewHolder extends RecyclerView.ViewHolder{
         ItemListElementBinding binding;
+        Context context;
         public ItemViewHolder(ItemListElementBinding binding) {
             super(binding.getRoot());
+            this.context = binding.getRoot().getContext();
             this.binding = binding;
         }
     }

@@ -10,4 +10,6 @@
     <string name="val">Количество</string>
     <string name="enter_description">Введите описание товара</string>
     <string name="item_images">Фотографии товара</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>

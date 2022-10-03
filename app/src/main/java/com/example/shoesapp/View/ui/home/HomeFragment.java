@@ -61,7 +61,18 @@ public class HomeFragment extends Fragment {
 
         recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
 
+        binding = ((MainActivity) requireActivity()).binding;
+        mBinding.fab.setOnClickListener(item -> {
+            if(item.getId() == R.id.fab){
+                mBinding.getRoot().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Navigation.findNavController(mBinding.getRoot()).navigate(R.id.action_homeFragment_to_addItemFragment);
+                    }
+                }, 2000);
 
+            }
+        });
 
 //      mHomeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return mBinding.getRoot();
@@ -80,13 +91,7 @@ public class HomeFragment extends Fragment {
             System.out.println(itemList);
             mBinding.listItem.setAdapter(new ItemListAdapter(itemList, (MainActivity)requireActivity()));
         });
-        binding = ((MainActivity) requireActivity()).binding;
-        mBinding.fab.setOnClickListener(item -> {
-            if(item.getId() == R.id.fab){
-                System.out.println(mBinding.fab);
 
-            }
-        });
     }
 
 
