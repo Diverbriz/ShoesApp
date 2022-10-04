@@ -50,6 +50,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemVi
                         .load(data.get(position).getImg().get(0))
                                 .into(holder.binding.cardImageView);
         holder.binding.itemName.setText(data.get(position).getName());
+
         holder.binding.itemPrice.setText(data.get(position).getPrice()+"");
         if(data.get(position).getImg() != null && !data.get(position).getImg().isEmpty()){
             holder.binding.imageSlider.setVisibility(View.VISIBLE);

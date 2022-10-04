@@ -1,5 +1,8 @@
 package com.example.shoesapp.Domain.Models;
 
+import android.text.Editable;
+import android.widget.EditText;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -77,4 +80,6 @@ public class Item {
     public void setDescription(List<String> description) {
         this.description = description;
     }
+
+
 }

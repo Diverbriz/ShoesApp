@@ -39,23 +39,6 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-//        binding.bottomNavView.setOnItemSelectedListener(item -> {
-//            switch (item.getItemId()){
-//                case R.id.navigation_home:
-//                    replaceFragment(new HomeFragment());
-//                    break;
-//                case R.id.navigation_dashboard:
-//                    replaceFragment(new DashboardFragment());
-//                    break;
-//                case R.id.navigation_notifications:
-//                    replaceFragment(new NotificationsFragment());
-//                    break;
-//                case R.id.navigation_add:
-//                    replaceFragment(new AddItemFragment());
-//                    break;
-//            }
-//            return true;
-//        });
 
 //        BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -81,10 +64,5 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-//    public void replaceFragment(Fragment fragment){
-//        FragmentManager fragmentManager = getSupportFragmentManager();
-//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//        fragmentTransaction.replace(R.id.frame_layout, fragment);
-//        fragmentTransaction.commit();
-//    }
+
 }

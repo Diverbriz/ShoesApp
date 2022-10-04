@@ -14,15 +14,25 @@ import com.example.shoesapp.Domain.RepositoryTask;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
+import java.util.stream.Collectors;
 
 public class Mock implements RepositoryTask {
 
     MutableLiveData<List<Item>> data;
     List<Item>  list;
-    List<String> imgList;
+    static List<String> imgList;
+
+    private static Mock INSTANCE;
+
+
     public Mock(){
         list = new ArrayList<>();
         imgList = new ArrayList<>();
+        imgList.add("https://firebasestorage.googleapis.com/v0/b/nike-store-94e3e.appspot.com/o/nike-metcon-4.png?alt=media&token=cee42a27-176b-465d-b89a-9f94e9e21d5c");
+        imgList.add("https://firebasestorage.googleapis.com/v0/b/nike-store-94e3e.appspot.com/o/nike-metcon-6.png?alt=media&token=e29a028f-e265-409d-a8c6-549b412f4251");
+        imgList.add("https://firebasestorage.googleapis.com/v0/b/nike-store-94e3e.appspot.com/o/nike-metcon-5-black.png?alt=media&token=f6c18876-01fb-4ca9-8423-c140a49e4cd7");
+        imgList.add("https://firebasestorage.googleapis.com/v0/b/nike-store-94e3e.appspot.com/o/nike-metcon-free.png?alt=media&token=9dd7c8a8-5e6e-42f2-b8b9-3315307c410a");
 
         Item item1 = new Item();
         item1.setName("Nike Metcon 4");
@@ -118,5 +128,22 @@ public class Mock implements RepositoryTask {
         });
 
         return specificItem;
+    }
+
+
+    public void toListString() {
+        for (Item item:list
+             ) {
+            System.out.println(
+                    item.getId()+ " "+
+                            item.getName()
+                    + " " + item.getPrice()
+            );
+        }
+    }
+
+    public static String randomImgUrl(){
+        int index = (int) (Math.random() * imgList.size());
+        return imgList.get(index);
     }
 }
