@@ -13,6 +13,6 @@ public interface RepositoryTask {
     <T extends Item> LiveData<List<T>> getAllItem();
    void addItem(Item item);
    void deleteItem(Item item);
-   void updateItem( Item item);
-   <T extends Item> MutableLiveData<T> findItem(String uid, LifecycleOwner owner);
+   void updateItem(Item item);
+    <T extends Item> MutableLiveData<T> findItem(String uid, LifecycleOwner owner);
 }

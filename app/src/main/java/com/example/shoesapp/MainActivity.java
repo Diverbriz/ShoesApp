@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.shoesapp.DI.ServiceLocator;
 import com.example.shoesapp.View.ui.dashboard.DashboardFragment;
 import com.example.shoesapp.View.ui.home.AddItemFragment;
 import com.example.shoesapp.View.ui.home.HomeFragment;
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
+        ServiceLocator.getInstance().initBase(getApplication());
 
 //        BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
