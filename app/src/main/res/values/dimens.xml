@@ -4,4 +4,5 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="normalMargin" >16dp</dimen>
     <dimen name="halfMargin" >8dp</dimen>
+    <dimen name="maxHeight">140dp</dimen>
 </resources>

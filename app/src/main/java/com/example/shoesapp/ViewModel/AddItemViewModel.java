@@ -1,6 +1,5 @@
 package com.example.shoesapp.ViewModel;
 
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.shoesapp.DI.ServiceLocator;
@@ -10,7 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class AddItemViewModel extends ViewModel {
-    public void AddParty(String name,
+    public void AddItem(String name,
                          float price,
                          String description,
                          List<String> img){

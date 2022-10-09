@@ -69,7 +69,7 @@ public class HomeFragment extends Fragment {
                     public void run() {
                         Navigation.findNavController(mBinding.getRoot()).navigate(R.id.action_homeFragment_to_addItemFragment);
                     }
-                }, 2000);
+                }, 1000);
 
             }
         });
@@ -78,11 +78,6 @@ public class HomeFragment extends Fragment {
         return mBinding.getRoot();
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-
-    }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
