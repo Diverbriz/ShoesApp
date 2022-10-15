@@ -1,7 +1,9 @@
 package com.example.shoesapp.Presentation.Repository.Room;
 
 import android.app.Application;
+import android.os.Build;
 
+import androidx.annotation.RequiresApi;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -24,23 +26,44 @@ public class ItemRepository implements RepositoryTask {
     }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public MutableLiveData<ItemDTO> findItem(String uid, LifecycleOwner owner) {
-        return null;
+
+        MutableLiveData<ItemDTO> specificItem = new MutableLiveData<>();
+
+        mAllItems.observe(owner, (List<ItemDTO> items)->{
+            specificItem.setValue(items.stream()
+                    .filter(itemDTO -> uid.equals(itemDTO.getId()))
+                    .findAny()
+                    .orElse(null)
+            );
+        });
+        return specificItem;
     }
 
     @Override
     public LiveData<List<ItemDTO>> getAllItem() {
-        return null;
+
+        return mAllItems;
     }
 
     @Override
     public void addItem(Item item) {
+        ItemDTO itemDTO = ItemDTO.convertFromItem(item);
 
+        ItemRoomDatabase.databaseWriteExecutor.execute(() -> {
+            mItemDao.addItem(itemDTO);
+        });
     }
 
     @Override
     public void deleteItem(Item item) {
+        ItemDTO itemDTO = ItemDTO.convertFromItem(item);
+
+        ItemRoomDatabase.databaseWriteExecutor.execute(() -> {
+            mItemDao.deleteItem(itemDTO);
+        });
 
     }
 

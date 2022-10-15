@@ -3,6 +3,8 @@ package com.example.shoesapp.Domain.Models;
 import android.text.Editable;
 import android.widget.EditText;
 
+import androidx.annotation.NonNull;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -10,13 +12,14 @@ import java.util.UUID;
 
 public class Item {
 
-    private String id;
-    private String name;
-    private float price;
-    private List<Float> sizes;
-    private String bground;
-    private List<String> img;
-    private List<String> description;
+    @NonNull
+    public String id;
+    public String name;
+    public float price;
+    public List<Float> sizes;
+    public String bground;
+    public List<String> img;
+    public List<String> description;
 
     public Item() {
         id = UUID.randomUUID().toString();

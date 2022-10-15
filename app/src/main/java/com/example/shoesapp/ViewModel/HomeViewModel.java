@@ -8,13 +8,14 @@ import com.example.shoesapp.DI.ServiceLocator;
 import com.example.shoesapp.Domain.Models.Item;
 import com.example.shoesapp.Domain.RepositoryTask;
 import com.example.shoesapp.Presentation.Repository.Mock.Mock;
+import com.example.shoesapp.Presentation.Repository.Model.ItemDTO;
 
 import java.util.List;
 
 public class HomeViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
-    private final LiveData<List<Item>> mItem;
+    private final LiveData<List<ItemDTO>> mItem;
     private RepositoryTask mock;
     public HomeViewModel() {
         mock = ServiceLocator.getInstance().getRepository();
@@ -31,7 +32,7 @@ public class HomeViewModel extends ViewModel {
         return mText;
     }
 
-    public LiveData<List<Item>> getItem() {
+    public LiveData<List<ItemDTO>> getItem() {
         return mItem;
     }
 }

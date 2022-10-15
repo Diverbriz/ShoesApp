@@ -51,9 +51,9 @@ public class ServiceLocator {
     private RepositoryTask mRepository;
 
     public void initBase(Application app){
-        if(instance == null){
+        if(mRepository == null){
             mRepository = new ItemRepository(app);
-            System.out.println("-----------ItemRepo");
+            System.out.println("ItemRepo--------------|||||||||||");
         }
         System.out.println("-----------no ItemRepo");
 

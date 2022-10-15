@@ -69,7 +69,7 @@ public class AddItemFragment extends Fragment {
                         mBinding.addItemName.getText().toString(),
                         Float.parseFloat(mBinding.itemPrice.getText().toString()),
                         mBinding.itemDescription.getText().toString(),
-                        Arrays.asList(Mock.randomImgUrl())
+                        Arrays.asList("https://firebasestorage.googleapis.com/v0/b/nike-store-94e3e.appspot.com/o/nike-metcon-4.png?alt=media&token=cee42a27-176b-465d-b89a-9f94e9e21d5c")
                 );
             }
             ServiceLocator.getInstance().getRepository().getAllItem()

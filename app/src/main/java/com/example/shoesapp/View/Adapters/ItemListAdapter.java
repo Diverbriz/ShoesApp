@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.shoesapp.DI.ServiceLocator;
 import com.example.shoesapp.Domain.Models.Item;
 import com.example.shoesapp.MainActivity;
+import com.example.shoesapp.Presentation.Repository.Model.ItemDTO;
 import com.example.shoesapp.R;
 import com.example.shoesapp.databinding.FragmentHomeBinding;
 import com.example.shoesapp.databinding.ItemListElementBinding;
@@ -28,10 +29,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemViewHolder> {
-    private List<Item> data;
+    private List<ItemDTO> data;
     private MainActivity mActivity;
     final int DIALOG_EXIT = 1;
-    public ItemListAdapter(List<Item> data, MainActivity activity) {
+    public ItemListAdapter(List<ItemDTO> data, MainActivity activity) {
         mActivity = activity;
         this.data = data;
 
@@ -60,8 +61,10 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemVi
             }
         });
 
+        System.out.println(data.get(position).getImages());
+
         holder.binding.itemCard.setOnLongClickListener(item -> {
-            System.out.println("111");
+//            System.out.println(data.get(position).getImg().get(0));
             AlertDialog.Builder builder = new AlertDialog.Builder(holder.context);
             builder.setTitle(R.string.exit);
             builder.setMessage(R.string.delete_data);
@@ -72,6 +75,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemVi
             builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() { // Кнопка ОК
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
+
                     dialog.dismiss(); // Отпускает диалоговое окно
                     ServiceLocator.getInstance().getRepository().deleteItem(data.get(position));
                 }
@@ -81,20 +85,14 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemVi
             dialog.show();
             return true;
         });
-        holder.binding.itemCard.setCardBackgroundColor(Color.LTGRAY);
+
         Picasso.with(mActivity.getApplicationContext())
-                        .load(data.get(position).getImg().get(0))
+                        .load(data.get(position).getImages().get(0))
                                 .into(holder.binding.cardImageView);
         holder.binding.itemName.setText(data.get(position).getName());
 
         holder.binding.itemPrice.setText(data.get(position).getPrice()+"");
-        if(data.get(position).getImg() != null && !data.get(position).getImg().isEmpty()){
-            holder.binding.imageSlider.setVisibility(View.VISIBLE);
 
-        }
-        else {
-            System.out.println("Изображения отсутствуют");
-        }
 
     }
 
@@ -108,7 +106,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemVi
         return data.size();
     }
 
-    public List<Item> getData() {
+    public List<ItemDTO> getData() {
         return data;
     }
 

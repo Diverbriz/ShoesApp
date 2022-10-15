@@ -22,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.shoesapp.Domain.Models.Item;
 import com.example.shoesapp.MainActivity;
+import com.example.shoesapp.Presentation.Repository.Model.ItemDTO;
 import com.example.shoesapp.R;
 import com.example.shoesapp.View.Adapters.ItemListAdapter;
 import com.example.shoesapp.ViewModel.HomeViewModel;
@@ -82,7 +83,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mHomeViewModel.getItem().observe(getViewLifecycleOwner(), (List<Item> itemList) -> {
+        mHomeViewModel.getItem().observe(getViewLifecycleOwner(), (List<ItemDTO> itemList) -> {
             System.out.println(itemList);
             mBinding.listItem.setAdapter(new ItemListAdapter(itemList, (MainActivity)requireActivity()));
         });

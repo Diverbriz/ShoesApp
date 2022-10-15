@@ -23,9 +23,6 @@ public class Mock implements RepositoryTask {
     List<Item>  list;
     static List<String> imgList;
 
-    private static Mock INSTANCE;
-
-
     public Mock(){
         list = new ArrayList<>();
         imgList = new ArrayList<>();
