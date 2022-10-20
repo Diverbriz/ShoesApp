@@ -1,31 +1,16 @@
 package com.example.shoesapp;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.view.View;
 
 import com.example.shoesapp.DI.ServiceLocator;
-import com.example.shoesapp.Domain.Models.Item;
+import com.example.shoesapp.domain.Models.Item;
 import com.example.shoesapp.Presentation.Repository.Model.ItemDTO;
-import com.example.shoesapp.View.ui.dashboard.DashboardFragment;
-import com.example.shoesapp.View.ui.home.AddItemFragment;
-import com.example.shoesapp.View.ui.home.HomeFragment;
-import com.example.shoesapp.View.ui.notifications.NotificationsFragment;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 
 import com.example.shoesapp.databinding.ActivityMainBinding;
-import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -62,9 +47,9 @@ public class MainActivity extends AppCompatActivity {
                         "https://firebasestorage.googleapis.com/v0/b/nike-store-94e3e.appspot.com/o/nike-metcon-4.png?alt=media&token=cee42a27-176b-465d-b89a-9f94e9e21d5c",
                         "https://firebasestorage.googleapis.com/v0/b/nike-store-94e3e.appspot.com/o/nike-metcon-4.png?alt=media&token=cee42a27-176b-465d-b89a-9f94e9e21d5c")));
         item1.setImagesDTO(item1.imagesDTO);
-        list.add(item1);
-        item1.setImg(item1.img);
 
+        item1.setImg(item1.img);
+        list.add(item1);
 //        System.out.println(item1.getImg());
 //        System.out.println(item1.getImages());
 //        System.out.println(item1.imagesDTO);

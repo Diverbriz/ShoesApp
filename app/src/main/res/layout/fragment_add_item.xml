@@ -16,10 +16,11 @@
         android:layout_marginBottom="72dp"
         android:clickable="true"
         android:contentDescription="@string/save_item"
+        android:focusable="true"
         android:src="@drawable/ic_baseline_save_alt_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:focusable="true" />
+        tools:ignore="ImageContrastCheck" />
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -35,21 +36,21 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="40dp">
+                android:layout_height="42dp">
 
                 <ImageButton
                     android:id="@+id/back_button"
-                    android:layout_width="wrap_content"
+                    android:layout_width="61dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_vertical"
                     android:background="@android:color/transparent"
+                    android:clickable="true"
                     android:contentDescription="@string/back"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
                     android:minWidth="48dp"
                     android:src="@drawable/ic_baseline_keyboard_backspace_24"
-                    tools:ignore="TouchTargetSizeCheck"
-                    android:clickable="true"
-                    android:focusable="true"
-                    />
+                    tools:ignore="TouchTargetSizeCheck" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -87,7 +88,7 @@
                 android:inputType="text"
                 android:textColorHint="#78909C"
                 android:textSize="20sp"
-                />
+                android:autofillHints="" />
 
 
             <LinearLayout
@@ -122,7 +123,48 @@
                 android:minHeight="48dp"
                 android:textColorHint="#757575" />
 
+            <RelativeLayout
+                android:id="@+id/imagesLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="75dp"
+                android:background="@color/secondary">
+
+                <TextView
+                    android:layout_width="144dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="@dimen/normalMargin"
+                    android:layout_marginTop="@dimen/normalMargin"
+                    android:layout_marginEnd="@dimen/normalMargin"
+                    android:layout_marginBottom="@dimen/normalMargin"
+                    android:text="@string/item_images" />
+
+                <ImageView
+                    android:id="@+id/imageDropdownArrow"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_alignParentEnd="true"
+                    android:background="@color/secondaryDark"
+                    android:clickable="true"
+                    android:contentDescription="TODO"
+                    android:focusable="true"
+                    android:padding="@dimen/halfMargin"
+                    android:src="@drawable/arrow_down" />
+
+            </RelativeLayout>
+
+                <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/addImageSlider"
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+
+                android:layout_marginHorizontal="@dimen/halfMargin"
+                android:layout_marginBottom="@dimen/normalMargin"
+                android:background="@color/background_secondary"
+                android:visibility="visible" />
+
         </LinearLayout>
+
+
     </ScrollView>
 
 

@@ -1,4 +1,4 @@
-package com.example.shoesapp.View.Adapters.Operations;
+package com.example.shoesapp.View.adapters.operations;
 
 public class SliderItem {
     private int image;

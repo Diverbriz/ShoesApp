@@ -4,12 +4,10 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 
 
-import com.example.shoesapp.Domain.Models.Item;
+import com.example.shoesapp.domain.Models.Item;
 import com.google.gson.Gson;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 @Entity(tableName = "item", primaryKeys = {"id"}, ignoredColumns = {"sizes", "img", "description"})
 public class ItemDTO extends Item {

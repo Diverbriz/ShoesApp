@@ -1,11 +1,10 @@
-package com.example.shoesapp.Domain;
+package com.example.shoesapp.domain;
 
-import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.shoesapp.Domain.Models.Item;
+import com.example.shoesapp.domain.Models.Item;
 
 import java.util.List;
 

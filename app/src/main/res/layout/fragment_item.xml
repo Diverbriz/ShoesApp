@@ -19,10 +19,17 @@
             android:id="@+id/fragment_item_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:selectAllOnFocus="true"
+            android:shadowColor="#656565"
+            android:shadowDx="2"
+            android:shadowDy="-1.2"
+            android:shadowRadius="4"
+            android:text="TextView"
+            android:textAlignment="center"
+            android:textSize="@dimen/hHeight" />
 
         <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/imageSlider"
+            android:id="@+id/addImageSlider"
             android:layout_width="match_parent"
             android:layout_height="226dp"
 

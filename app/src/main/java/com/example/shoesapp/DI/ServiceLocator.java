@@ -3,7 +3,7 @@ package com.example.shoesapp.DI;
 import android.app.Application;
 import android.os.Build;
 
-import com.example.shoesapp.Domain.RepositoryTask;
+import com.example.shoesapp.domain.RepositoryTask;
 import com.example.shoesapp.Presentation.Repository.Mock.Mock;
 import com.example.shoesapp.Presentation.Repository.Room.ItemRepository;
 import com.google.gson.Gson;
@@ -53,10 +53,7 @@ public class ServiceLocator {
     public void initBase(Application app){
         if(mRepository == null){
             mRepository = new ItemRepository(app);
-            System.out.println("ItemRepo--------------|||||||||||");
         }
-        System.out.println("-----------no ItemRepo");
-
     }
 
     public RepositoryTask getRepository() {
@@ -65,6 +62,4 @@ public class ServiceLocator {
         }
         return mRepository;
     }
-
-
 }

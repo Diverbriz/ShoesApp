@@ -1,11 +1,9 @@
-package com.example.shoesapp.View.Adapters;
+package com.example.shoesapp.View.adapters;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,16 +14,12 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.shoesapp.DI.ServiceLocator;
-import com.example.shoesapp.Domain.Models.Item;
 import com.example.shoesapp.MainActivity;
 import com.example.shoesapp.Presentation.Repository.Model.ItemDTO;
 import com.example.shoesapp.R;
-import com.example.shoesapp.databinding.FragmentHomeBinding;
 import com.example.shoesapp.databinding.ItemListElementBinding;
-import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 
-import java.util.LinkedList;
 import java.util.List;
 
 public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemViewHolder> {

@@ -1,7 +1,4 @@
-package com.example.shoesapp.Domain.Models;
-
-import android.text.Editable;
-import android.widget.EditText;
+package com.example.shoesapp.domain.Models;
 
 import androidx.annotation.NonNull;
 
@@ -84,6 +81,5 @@ public class Item {
     public void setDescription(List<String> description) {
         this.description = description;
     }
-
 
 }

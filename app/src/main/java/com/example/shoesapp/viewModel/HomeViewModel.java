@@ -1,12 +1,11 @@
-package com.example.shoesapp.ViewModel;
+package com.example.shoesapp.viewModel;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.shoesapp.DI.ServiceLocator;
-import com.example.shoesapp.Domain.Models.Item;
-import com.example.shoesapp.Domain.RepositoryTask;
+import com.example.shoesapp.domain.RepositoryTask;
 import com.example.shoesapp.Presentation.Repository.Mock.Mock;
 import com.example.shoesapp.Presentation.Repository.Model.ItemDTO;
 

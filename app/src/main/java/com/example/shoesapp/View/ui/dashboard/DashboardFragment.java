@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.shoesapp.ViewModel.DashboardViewModel;
+import com.example.shoesapp.viewModel.DashboardViewModel;
 import com.example.shoesapp.databinding.FragmentDashboardBinding;
 
 public class DashboardFragment extends Fragment {

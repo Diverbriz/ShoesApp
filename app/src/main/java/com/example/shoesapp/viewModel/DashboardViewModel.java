@@ -1,4 +1,4 @@
-package com.example.shoesapp.ViewModel;
+package com.example.shoesapp.viewModel;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

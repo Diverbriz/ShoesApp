@@ -9,8 +9,8 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 
-import com.example.shoesapp.Domain.Models.Item;
-import com.example.shoesapp.Domain.RepositoryTask;
+import com.example.shoesapp.domain.Models.Item;
+import com.example.shoesapp.domain.RepositoryTask;
 import com.example.shoesapp.Presentation.Repository.Model.ItemDTO;
 import com.example.shoesapp.Presentation.Repository.Room.Dao.ItemDao;
 

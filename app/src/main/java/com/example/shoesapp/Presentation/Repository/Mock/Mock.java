@@ -5,17 +5,14 @@ import android.os.Build;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.lifecycle.LifecycleOwner;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.shoesapp.Domain.Models.Item;
-import com.example.shoesapp.Domain.RepositoryTask;
+import com.example.shoesapp.domain.Models.Item;
+import com.example.shoesapp.domain.RepositoryTask;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
-import java.util.stream.Collectors;
 
 public class Mock implements RepositoryTask {
 

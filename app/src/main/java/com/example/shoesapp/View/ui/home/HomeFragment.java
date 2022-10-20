@@ -1,18 +1,13 @@
 package com.example.shoesapp.View.ui.home;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -20,18 +15,15 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.shoesapp.Domain.Models.Item;
 import com.example.shoesapp.MainActivity;
 import com.example.shoesapp.Presentation.Repository.Model.ItemDTO;
 import com.example.shoesapp.R;
-import com.example.shoesapp.View.Adapters.ItemListAdapter;
-import com.example.shoesapp.ViewModel.HomeViewModel;
+import com.example.shoesapp.View.adapters.ItemListAdapter;
+import com.example.shoesapp.viewModel.HomeViewModel;
 import com.example.shoesapp.databinding.ActivityMainBinding;
 import com.example.shoesapp.databinding.FragmentHomeBinding;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
-import java.util.Objects;
 
 public class HomeFragment extends Fragment {
 
