@@ -6,11 +6,15 @@ import com.example.shoesapp.DI.ServiceLocator;
 import com.example.shoesapp.domain.Models.Item;
 import com.example.shoesapp.Presentation.Repository.Model.ItemDTO;
 
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.lifecycle.Observer;
 import androidx.navigation.NavController;
 
 import com.example.shoesapp.databinding.ActivityMainBinding;
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,10 +23,12 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     public ActivityMainBinding binding;
+
     private NavController navController;
     List<ItemDTO> list;
-
-
+    private DrawerLayout drawerLayout;
+    private Toolbar toolbar;
+    private NavigationView navigationView;
     public NavController getNavController(){
         return navController;
     }
@@ -35,27 +41,26 @@ public class MainActivity extends AppCompatActivity {
         ServiceLocator.getInstance().initBase(getApplication());
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
+        drawerLayout = binding.drawerLayout;
+        navigationView = binding.navView;
+        toolbar = findViewById(R.id.toolbar_action);
         list = new ArrayList<>();
 
-        ItemDTO item1 = new ItemDTO();
-        item1.setName("Nike Metcon 7");
-        item1.setBground("#414045");
-        item1.setPrice(5000.1f);
-        item1.setImg(new ArrayList<>(Arrays.asList
-                ("https://firebasestorage.googleapis.com/v0/b/nike-store-94e3e.appspot.com/o/nike-metcon-4.png?alt=media&token=cee42a27-176b-465d-b89a-9f94e9e21d5c",
-                        "https://firebasestorage.googleapis.com/v0/b/nike-store-94e3e.appspot.com/o/nike-metcon-4.png?alt=media&token=cee42a27-176b-465d-b89a-9f94e9e21d5c",
-                        "https://firebasestorage.googleapis.com/v0/b/nike-store-94e3e.appspot.com/o/nike-metcon-4.png?alt=media&token=cee42a27-176b-465d-b89a-9f94e9e21d5c")));
-        item1.setImagesDTO(item1.imagesDTO);
+        /*
+        * ToolBar
+        * */
+        setSupportActionBar(toolbar);
 
-        item1.setImg(item1.img);
-        list.add(item1);
-//        System.out.println(item1.getImg());
-//        System.out.println(item1.getImages());
-//        System.out.println(item1.imagesDTO);
-//        List<String> img = new Gson().fromJson(item1.imagesDTO, List.class);
-//        System.out.println(img.toString());
-//        ServiceLocator.getInstance().getRepository().addItem(item1);
+        /*
+        * Navigation Drawer Menu
+        * */
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout,
+                toolbar,
+                R.string.open,
+                R.string.exit);
+
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
         ServiceLocator.getInstance().getRepository().getAllItem()
                 .observe(this, new Observer<List<Item>>() {
                     @Override

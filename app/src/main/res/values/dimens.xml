@@ -6,4 +6,5 @@
     <dimen name="halfMargin" >8dp</dimen>
     <dimen name="maxHeight">140dp</dimen>
     <dimen name="hHeight">24dp</dimen>
+    <dimen name="header_container">176dp</dimen>
 </resources>

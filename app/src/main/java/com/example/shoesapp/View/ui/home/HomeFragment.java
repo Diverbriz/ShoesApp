@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -30,7 +31,6 @@ public class HomeFragment extends Fragment {
     private FragmentHomeBinding mBinding;
     private HomeViewModel mHomeViewModel;
     private RecyclerView recyclerView;
-    private NavController navController;
     private ActivityMainBinding binding;
     public static HomeFragment newInstance(){
         return new HomeFragment();
@@ -47,9 +47,10 @@ public class HomeFragment extends Fragment {
         mBinding.listItem.setLayoutManager(new LinearLayoutManager(getContext()));
 
         recyclerView = mBinding.listItem;
-        LinearLayoutManager linearLayoutManager =
-                new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
-        recyclerView.setLayoutManager(linearLayoutManager);
+//        LinearLayoutManager linearLayoutManager =
+//                new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
+        recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setHasFixedSize(true);
 
         recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));

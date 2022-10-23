@@ -11,23 +11,11 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_homeFragment_to_dashboardFragment"
-            app:destination="@id/dashboardFragment" />
-        <action
             android:id="@+id/action_homeFragment_to_addItemFragment"
             app:destination="@id/addItemFragment" />
         <action
             android:id="@+id/action_homeFragment_to_itemFragment"
             app:destination="@id/itemFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/dashboardFragment"
-        android:name="com.example.shoesapp.View.ui.dashboard.DashboardFragment"
-        android:label="fragment_dashboard"
-        tools:layout="@layout/fragment_dashboard" >
-        <action
-            android:id="@+id/action_dashboardFragment_to_addItemFragment"
-            app:destination="@id/addItemFragment" />
     </fragment>
     <fragment
         android:id="@+id/addItemFragment"

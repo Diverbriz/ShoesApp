@@ -4,10 +4,14 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 
 import androidx.annotation.NonNull;
 import androidx.navigation.Navigation;
@@ -15,17 +19,20 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.shoesapp.DI.ServiceLocator;
 import com.example.shoesapp.MainActivity;
+import com.example.shoesapp.Presentation.Operations.locale.CurrencyLocale;
 import com.example.shoesapp.Presentation.Repository.Model.ItemDTO;
 import com.example.shoesapp.R;
 import com.example.shoesapp.databinding.ItemListElementBinding;
-import com.squareup.picasso.Picasso;
 
+import java.io.FileNotFoundException;
 import java.util.List;
+import java.util.Locale;
 
 public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemViewHolder> {
     private List<ItemDTO> data;
     private MainActivity mActivity;
     final int DIALOG_EXIT = 1;
+    private List<String> images;
     public ItemListAdapter(List<ItemDTO> data, MainActivity activity) {
         mActivity = activity;
         this.data = data;
@@ -41,8 +48,11 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemVi
         return new ItemViewHolder(binding);
     }
 
+    @SuppressLint("Recycle")
     @Override
     public void onBindViewHolder(@NonNull ItemViewHolder holder, @SuppressLint("RecyclerView") int position) {
+
+
         holder.binding.itemCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -79,21 +89,33 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemVi
             dialog.show();
             return true;
         });
+//TODO: Picasso
+        if(data.get(position).getImages() != null){
+            try {
+                holder.binding.cardImageView.setImageBitmap(
+                        BitmapFactory.decodeFileDescriptor(
+                                mActivity.getApplicationContext().getContentResolver().openFileDescriptor(
+                                        Uri.parse(data.get(position).getImages().get(0)), "r").getFileDescriptor()
+                        )
+                );
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
 
-        Picasso.with(mActivity.getApplicationContext())
-                        .load(data.get(position).getImages().get(0))
-                                .into(holder.binding.cardImageView);
         holder.binding.itemName.setText(data.get(position).getName());
 
-        holder.binding.itemPrice.setText(data.get(position).getPrice()+"");
-
-
+        holder.binding.itemPrice.setText(CurrencyLocale.getCurrency(new Locale("ru", "Ru"))
+                .format(data.get(position).getPrice()));
+        holder.binding.itemCard.getLayoutParams().width = getScreenWidth(holder.context)/2;
     }
-
-    public void onCreateDialog(int id) {
-
+    public static int getScreenWidth(Context context) {
+        WindowManager wm= (WindowManager) context
+                .getSystemService(Context.WINDOW_SERVICE);
+        DisplayMetrics dm = new DisplayMetrics();
+        wm.getDefaultDisplay().getMetrics(dm);
+        return dm.widthPixels;
     }
-
 
     @Override
     public int getItemCount() {

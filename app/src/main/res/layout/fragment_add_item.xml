@@ -12,6 +12,7 @@
         android:id="@+id/fab"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="118dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="72dp"
         android:clickable="true"
@@ -20,12 +21,16 @@
         android:src="@drawable/ic_baseline_save_alt_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2"
         tools:ignore="ImageContrastCheck" />
 
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:id="@+id/new_item_button"
@@ -75,20 +80,19 @@
 
                 android:inputType="text"
                 android:textColorHint="#78909C"
-                android:textSize="20sp"
-                />
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/item_price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/halfMargin"
+                android:autofillHints=""
                 android:hint="@string/enter_item_price"
-                android:minHeight="48dp"
                 android:inputType="text"
+                android:minHeight="48dp"
                 android:textColorHint="#78909C"
-                android:textSize="20sp"
-                android:autofillHints="" />
+                android:textSize="20sp" />
 
 
             <LinearLayout
@@ -106,8 +110,7 @@
                     android:inputType="number"
                     android:textColorHint="#78909C"
                     android:textSize="20sp"
-                    tools:ignore="TouchTargetSizeCheck"
-                    />
+                    tools:ignore="TouchTargetSizeCheck" />
             </LinearLayout>
 
             <EditText
@@ -152,7 +155,7 @@
 
             </RelativeLayout>
 
-                <androidx.viewpager2.widget.ViewPager2
+            <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/addImageSlider"
                 android:layout_width="match_parent"
                 android:layout_height="72dp"
