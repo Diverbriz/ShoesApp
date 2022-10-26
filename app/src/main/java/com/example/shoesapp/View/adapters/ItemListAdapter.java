@@ -107,7 +107,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemVi
 
         holder.binding.itemPrice.setText(CurrencyLocale.getCurrency(new Locale("ru", "Ru"))
                 .format(data.get(position).getPrice()));
-        holder.binding.itemCard.getLayoutParams().width = getScreenWidth(holder.context)/2;
+
     }
     public static int getScreenWidth(Context context) {
         WindowManager wm= (WindowManager) context

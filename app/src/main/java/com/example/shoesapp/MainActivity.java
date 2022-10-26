@@ -68,7 +68,6 @@ public class MainActivity extends AppCompatActivity {
 //                        System.out.println(itemList.get(5).getImg());
                     }
                 });
-
     }
 
 

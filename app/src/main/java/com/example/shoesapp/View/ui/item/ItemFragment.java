@@ -32,7 +32,6 @@ public class ItemFragment extends Fragment {
     private ItemViewModel mViewModel;
     private FragmentItemBinding mBinding;
 //    private final Locale locale = new Locale("ru", "RU");
-    private CurrencyLocale currencyLocale;
     public static ItemFragment newInstance() {
         return new ItemFragment();
     }
@@ -41,7 +40,7 @@ public class ItemFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         mBinding = FragmentItemBinding.inflate(inflater, container, false);
-        currencyLocale = new CurrencyLocale();
+
         mViewModel = new ViewModelProvider(this).get(ItemViewModel.class);
         if (getArguments() != null) {
             mViewModel.setItem(
