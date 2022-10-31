@@ -35,5 +35,12 @@
         android:id="@+id/loginFragment"
         android:name="com.example.shoesapp.View.ui.login.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" /><action android:id="@+id/action_global_loginFragment" app:destination="@id/loginFragment"/>
+        tools:layout="@layout/fragment_login" />
+    <action android:id="@+id/action_global_loginFragment" app:destination="@id/loginFragment"/>
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.example.shoesapp.View.ui.login_activity.LoginActivity"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
+    <action android:id="@+id/action_global_loginActivity" app:destination="@id/loginActivity"/>
 </navigation>

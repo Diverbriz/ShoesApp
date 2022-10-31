@@ -34,42 +34,30 @@
 
 
     <Button
-        android:id="@+id/login_button"
+        android:id="@+id/registration_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="@string/login"
-
+        android:hint="@string/sign_up"
+        android:background="@drawable/my_button_bg"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/normalMargin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text3"
-        android:layout_marginTop="@dimen/normalMargin"
-        android:background="@drawable/my_button_bg"
+        app:layout_constraintTop_toBottomOf="@id/text4"
+
         app:layout_constraintWidth_percent="0.8" />
 
     <TextView
-        android:id="@+id/text3"
+        android:id="@+id/text4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintHorizontal_bias="1"
         app:layout_constraintVertical_bias="0"
-        android:text="Forgot Password"
+        android:text="Have an account?"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/password_edit"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password_edit" />
 
-    <ProgressBar
-        android:id="@+id/loading"
-        android:layout_width="247dp"
-        android:layout_height="68dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginBottom="64dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3" />
 </androidx.constraintlayout.widget.ConstraintLayout>

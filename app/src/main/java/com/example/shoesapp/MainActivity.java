@@ -1,6 +1,7 @@
 package com.example.shoesapp;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -16,6 +17,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.shoesapp.View.ui.login.LoginFragment;
+import com.example.shoesapp.View.ui.login_activity.LoginActivity;
 import com.example.shoesapp.databinding.ActivityMainBinding;
 import com.example.shoesapp.databinding.AddImageElementBinding;
 import com.example.shoesapp.databinding.FragmentAddItemBinding;
@@ -87,10 +89,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 System.out.println("Home");
                 break;
             case R.id.navigation_profile:
-                getSupportFragmentManager().beginTransaction().replace(
-                        R.id.frame_layout,
-                        new LoginFragment()
-                ).commit();
+//                getSupportFragmentManager().beginTransaction().replace(
+//                        R.id.frame_layout,
+//                        new LoginFragment()
+//                ).commit();
+
+                Intent myIntent = new Intent(MainActivity.this,
+                        LoginActivity.class);
+                 //Optional parameters
+                MainActivity.this.startActivity(myIntent);
+
                 break;
         }
         return true;
