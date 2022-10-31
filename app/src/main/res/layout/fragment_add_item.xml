@@ -12,8 +12,7 @@
         android:id="@+id/fab"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="118dp"
-        android:layout_marginEnd="16dp"
+
         android:layout_marginBottom="72dp"
         android:clickable="true"
         android:contentDescription="@string/save_item"
@@ -22,6 +21,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrollView2"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="ImageContrastCheck" />
 
     <ScrollView

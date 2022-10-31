@@ -1,74 +1,96 @@
 package com.example.shoesapp;
 
 import android.os.Bundle;
+import android.view.MenuItem;
+
 
 import com.example.shoesapp.DI.ServiceLocator;
-import com.example.shoesapp.domain.Models.Item;
-import com.example.shoesapp.Presentation.Repository.Model.ItemDTO;
-
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.lifecycle.Observer;
 import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 
+import com.example.shoesapp.View.ui.login.LoginFragment;
 import com.example.shoesapp.databinding.ActivityMainBinding;
+import com.example.shoesapp.databinding.AddImageElementBinding;
+import com.example.shoesapp.databinding.FragmentAddItemBinding;
+import com.example.shoesapp.databinding.NavHeaderBinding;
 import com.google.android.material.navigation.NavigationView;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     public ActivityMainBinding binding;
-
-    private NavController navController;
-    List<ItemDTO> list;
     private DrawerLayout drawerLayout;
-    private Toolbar toolbar;
-    private NavigationView navigationView;
+    private NavController navController;
     public NavController getNavController(){
         return navController;
     }
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ServiceLocator.getInstance().initBase(getApplication());
+
         binding = ActivityMainBinding.inflate(getLayoutInflater());
+
         setContentView(binding.getRoot());
-        drawerLayout = binding.drawerLayout;
-        navigationView = binding.navView;
-        toolbar = findViewById(R.id.toolbar_action);
-        list = new ArrayList<>();
+        setSupportActionBar(binding.toolbar);
 
-        /*
-        * ToolBar
-        * */
-        setSupportActionBar(toolbar);
+        drawerLayout = findViewById(R.id.drawer_layout);
 
-        /*
-        * Navigation Drawer Menu
-        * */
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout,
-                toolbar,
-                R.string.open,
-                R.string.exit);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
 
-        drawerLayout.addDrawerListener(toggle);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this,
+                binding.drawerLayout,
+                binding.toolbar,
+                R.string.navigation_open,
+                R.string.navigation_close
+        );
         toggle.syncState();
-        ServiceLocator.getInstance().getRepository().getAllItem()
-                .observe(this, new Observer<List<Item>>() {
-                    @Override
-                    public void onChanged(List<Item> itemList) {
-//                        System.out.println(itemList.get(5).getImg());
-                    }
-                });
+
+//        toggle.setToolbarNavigationClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                drawerLayout.bringToFront();
+//                drawerLayout.clearFocus();
+//                drawerLayout.openDrawer(GravityCompat.START);
+//            }
+//        });
+//        navigationView = binding.navView;
+
     }
 
+    @Override
+    public void onBackPressed() {
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
 
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.navigation_home_graph:
+                System.out.println("Home");
+                break;
+            case R.id.navigation_profile:
+                getSupportFragmentManager().beginTransaction().replace(
+                        R.id.frame_layout,
+                        new LoginFragment()
+                ).commit();
+                break;
+        }
+        return true;
+    }
 }

@@ -1,6 +1,11 @@
 <resources>
-    <style name="Widget.Theme.ShoesApp.ButtonBar.Fullscreen" parent="">
-        <item name="android:background">@color/black_overlay</item>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:background">@color/material_dynamic_primary0</item>
         <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
+        <item name="colorAccent">@color/purple_500</item>
+    </style>
+    <style name="AppTheme.NoActionBar">
+            <item name="windowActionBar">false</item>
+            <item name="windowNoTitle">true</item>
     </style>
 </resources>

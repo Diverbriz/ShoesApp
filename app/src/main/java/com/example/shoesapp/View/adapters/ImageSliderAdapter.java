@@ -38,7 +38,6 @@ public class ImageSliderAdapter extends RecyclerView.Adapter<ImageSliderAdapter.
     public void onBindViewHolder(@NonNull ImageSliderViewHolder holder, int position) {
        if(images.get(position) == null){
            holder.mBinding.imageSlide.setVisibility(View.GONE);
-
        }
        else {
            holder.mBinding.imageSlide.setVisibility(View.VISIBLE);
@@ -56,12 +55,7 @@ public class ImageSliderAdapter extends RecyclerView.Adapter<ImageSliderAdapter.
     }
 
     class ImageSliderViewHolder extends RecyclerView.ViewHolder{
-
         ImageElementBinding mBinding;
-
-
-
-
         public ImageSliderViewHolder(@NonNull ImageElementBinding binding) {
             super(binding.getRoot());
 

@@ -14,7 +14,6 @@ public class DataModel {
     private String last_name;
     private String avatar;
 
-
     public String getId() {
         return id;
     }

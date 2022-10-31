@@ -113,7 +113,8 @@ public class HomeFragment extends Fragment {
                 mBinding.getRoot().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        Navigation.findNavController(mBinding.getRoot()).navigate(R.id.action_homeFragment_to_addItemFragment);
+                        Navigation.findNavController(mBinding.getRoot())
+                                .navigate(R.id.action_homeFragment_to_addItemFragment);
                     }
                 }, 1000);
         });
