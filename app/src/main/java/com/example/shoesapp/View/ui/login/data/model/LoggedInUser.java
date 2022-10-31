@@ -6,11 +6,11 @@ package com.example.shoesapp.View.ui.login.data.model;
 public class LoggedInUser {
 
     private String userId;
-    private String displayName;
+    private String password;
 
     public LoggedInUser(String userId, String displayName) {
         this.userId = userId;
-        this.displayName = displayName;
+        this.password = displayName;
     }
 
     public String getUserId() {
@@ -18,6 +18,6 @@ public class LoggedInUser {
     }
 
     public String getDisplayName() {
-        return displayName;
+        return password;
     }
 }

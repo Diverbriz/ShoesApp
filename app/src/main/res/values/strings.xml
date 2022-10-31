@@ -42,4 +42,8 @@
     <string name="registration">Регистрация</string>
     <string name="email_description">Введите email</string>
     <string name="password_description">Введите пароль</string>
+    <string name="google">Google</string>
+    <string name="vk">Vk</string>
+    <string name="gmail">Gmail</string>
+    <string name="welcome_to">Добро пожаловать в нашей системе</string>
 </resources>
