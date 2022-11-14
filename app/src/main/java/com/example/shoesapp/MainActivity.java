@@ -98,7 +98,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         LoginActivity.class);
                  //Optional parameters
                 MainActivity.this.startActivity(myIntent);
-
                 break;
         }
         return true;

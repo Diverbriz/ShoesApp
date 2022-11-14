@@ -1,5 +1,7 @@
 package com.example.shoesapp.View.ui.login_activity;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -7,6 +9,8 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 
 import com.example.shoesapp.R;
 import com.example.shoesapp.View.adapters.LoginAdapter;
@@ -14,7 +18,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
 
     private TabLayout tabLayout;
     private ViewPager2 viewPager2;
@@ -51,7 +55,23 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     }
                 }).attach();
+        fab_vk.setOnClickListener(this);
+        fab_google.setOnClickListener(this);
+        fab_gmail.setOnClickListener(this);
+    }
 
-
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.fab_google:
+                Log.e(TAG, "Лог для Google провайдера ");
+                break;
+            case R.id.fab_vk:
+                Log.e(TAG, "Лог для Vk провайдера ");
+                break;
+            case R.id.fab_gmail:
+                Log.e(TAG, "Лог для Gmail провайдера ");
+                break;
+        }
     }
 }

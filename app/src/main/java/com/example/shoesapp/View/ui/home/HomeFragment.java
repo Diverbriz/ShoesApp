@@ -72,11 +72,11 @@ public class HomeFragment extends Fragment {
         binding = ((MainActivity) requireActivity()).binding;
         methods = RetrofitClient.getRetrofitInstance().create(Methods.class);
         mBinding.fab.setOnClickListener(item -> {
-            Call<UserModel> call = methods.getAllUsers();
+            Call<UserModel> call = methods.getAllUsers("2");
             call.enqueue(new Callback<UserModel>() {
                 @Override
                 public void onResponse(@NonNull Call<UserModel> call, @NonNull Response<UserModel> response) {
-                    Log.e(TAG, "On Response code: " + response.code());
+                    Log.e(TAG, "On Response code: " + call.request());
 
                     ArrayList<DataModel> dataModels = response.body().getData();
                     Support support = response.body().getSupport();
@@ -93,7 +93,7 @@ public class HomeFragment extends Fragment {
 
                 @Override
                 public void onFailure(Call<UserModel> call, Throwable t) {
-                    Log.e(TAG, "On Error Response data:" + t.getMessage());
+                    Log.e(TAG, "On Error Response data:" + call.request());
                 }
             });
 

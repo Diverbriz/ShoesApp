@@ -1,6 +1,9 @@
 package com.example.shoesapp.Presentation.Repository.Model;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Support {
+
     private String url;
     private String text;
 

@@ -13,7 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.shoesapp.R;
-import com.example.shoesapp.viewModel.LoginViewModel;
+import com.example.shoesapp.viewModel.loginViewModel.LoginViewModel;
 
 public class LoginFragment extends Fragment {
 
