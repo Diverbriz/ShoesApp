@@ -2,19 +2,16 @@ package com.example.shoesapp.Presentation.Repository.network.repositories;
 
 import static android.content.ContentValues.TAG;
 
-import android.content.Intent;
 import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.shoesapp.MainActivity;
 import com.example.shoesapp.Presentation.Repository.network.Methods;
 import com.example.shoesapp.Presentation.Repository.network.RetrofitClient;
 import com.example.shoesapp.Presentation.Repository.network.retrofit.model.UserModel;
-import com.example.shoesapp.View.ui.login_activity.LoginActivity;
-import com.example.shoesapp.View.ui.login_activity.model.LoginResponse;
-import com.example.shoesapp.View.ui.login_activity.model.Person;
-import com.example.shoesapp.View.ui.login_activity.model.RegistrationResponse;
+import com.example.shoesapp.view.ui.login_activity.model.LoginResponse;
+import com.example.shoesapp.view.ui.login_activity.model.Person;
+import com.example.shoesapp.view.ui.login_activity.model.RegistrationResponse;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -84,7 +81,7 @@ public class UserRepository {
             public void onResponse(Call<RegistrationResponse> call, Response<RegistrationResponse> response) {
                if(response.isSuccessful()){
                    Log.e(TAG, "Response of post call " + call.request());
-                   callMutable.postValue(response.body());
+                   callMutable.setValue(response.body());
                    Log.e(TAG, "Response of post call " + response.body());
                    if (callMutable.getValue() != null){
                        Log.e(TAG, "-------------");

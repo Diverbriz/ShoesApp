@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.ui.login_activity.LoginActivity">
+    tools:context=".view.ui.login_activity.LoginActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -32,8 +32,9 @@
         app:layout_constraintVertical_bias="1"
         android:background="@drawable/view_bg">
 
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/view_pager"
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/nav_host_fragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintVertical_bias="0"
@@ -41,7 +42,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent=".7"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tab_layout" />
+            app:layout_constraintTop_toBottomOf="@+id/tab_layout"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/mobile_navigation"
+            />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_layout"
@@ -68,7 +72,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/fab_vk"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view_pager"
+            app:layout_constraintTop_toBottomOf="@+id/nav_host_fragment"
             android:focusable="true" />
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_vk"
@@ -82,7 +86,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view_pager"
+            app:layout_constraintTop_toBottomOf="@+id/nav_host_fragment"
             android:focusable="true" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -98,7 +102,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/fab_vk"
-            app:layout_constraintTop_toBottomOf="@+id/view_pager"
+            app:layout_constraintTop_toBottomOf="@+id/nav_host_fragment"
             android:clickable="true"
             android:focusable="true" />
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,7 @@
 package com.example.shoesapp;
 
+import static java.lang.System.out;
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,18 +15,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
 
-import com.example.shoesapp.View.ui.login.LoginFragment;
-import com.example.shoesapp.View.ui.login_activity.LoginActivity;
 import com.example.shoesapp.databinding.ActivityMainBinding;
-import com.example.shoesapp.databinding.AddImageElementBinding;
-import com.example.shoesapp.databinding.FragmentAddItemBinding;
-import com.example.shoesapp.databinding.NavHeaderBinding;
+import com.example.shoesapp.view.ui.login_activity.LoginActivity;
 import com.google.android.material.navigation.NavigationView;
-
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -68,7 +62,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //            }
 //        });
 //        navigationView = binding.navView;
-
+        if(getIntent().getExtras() != null){
+            Bundle arg = getIntent().getExtras();
+            out.println("Get Current Email " + arg.get("profile").toString());
+        }
     }
 
     @Override
@@ -86,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.navigation_home_graph:
-                System.out.println("Home");
+                out.println("Home");
                 break;
             case R.id.navigation_profile:
 //                getSupportFragmentManager().beginTransaction().replace(

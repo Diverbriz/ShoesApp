@@ -3,36 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
-
+    app:startDestination="@id/loginTabFragment2">
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.example.shoesapp.View.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_navigation_home_to_navigation_addItemFragment"
-            app:destination="@id/navigation_addItem" />
-    </fragment>
-
+        android:id="@+id/signupTabFragment"
+        tools:layout="@layout/registration_tab_fragment"
+        android:name="com.example.shoesapp.view.ui.login_activity.fragments.SignupTabFragment"
+        android:label="SignupTabFragment" />
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.shoesapp.View.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
-
+        android:id="@+id/loginTabFragment2"
+        tools:layout="@layout/login_tab_fragment"
+        android:name="com.example.shoesapp.view.ui.login_activity.fragments.LoginTabFragment"
+        android:label="LoginTabFragment" />
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.shoesapp.View.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
-    <fragment
-        android:id="@+id/navigation_addItem"
-        android:name="com.example.shoesapp.View.ui.home.AddItemFragment"
-        android:label="@string/title_addItem"
-        tools:layout="@layout/fragment_add_item" >
-        <action
-            android:id="@+id/action_navigation_addItemFragment_to_navigation_home"
-            app:destination="@id/navigation_home" />
-    </fragment>
+        android:id="@+id/webFragment"
+        android:name="com.example.shoesapp.view.ui.login_activity.fragments.WebFragment"
+        android:label="WebFragment" />
+    <action android:id="@+id/action_global_signupTabFragment" app:destination="@id/signupTabFragment" />
+    <action android:id="@+id/action_global_loginTabFragment2" app:destination="@id/loginTabFragment2" /><action android:id="@+id/action_global_webFragment" app:destination="@id/webFragment"/>
 </navigation>
