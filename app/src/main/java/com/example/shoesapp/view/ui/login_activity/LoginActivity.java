@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
 //        viewPager2 = findViewById(R.id.nav_host_fragment);
 
-        fab_google = findViewById(R.id.fab_google);
+        fab_google = findViewById(R.id.fab_firebase);
         fab_vk = findViewById(R.id.fab_vk);
         fab_gmail = findViewById(R.id.fab_gmail);
 
@@ -99,7 +99,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.fab_google:
+            case R.id.fab_firebase:
                 Log.e(TAG, "Лог для Google провайдера ");
 
 //                Intent intent = new Intent(
@@ -111,11 +111,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 Log.e(TAG, "Лог для Vk провайдера ");
                 Bundle bundle = new Bundle();
                         bundle.putString("url" ,
-                                "https://oauth.vk.com/authorize?client_id=7975999&scope=email&redirect_uri=https://oauth.vk.com/blank.html&display=mobile&response_type=token&scope=offline, email");
+                                "https://oauth.vk.com/authorize?client_id=51479013&redirect_uri=https://oauth.vk.com/blank.html&display=mobile");
 //                webBinding.Web.loadUrl(bundle.getString("url"));
                         Navigation.findNavController(mBinding.navHostFragment)
                             .navigate(R.id.action_global_webFragment, bundle);
-//
+//51479013 client_id ShoeApp (7975999)
 
                 break;
             case R.id.fab_gmail:
