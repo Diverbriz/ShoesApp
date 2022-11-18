@@ -108,6 +108,8 @@
         </ScrollView>
         <com.google.android.material.navigation.NavigationView
             android:id="@+id/nav_view"
+            android:layout_marginTop="50dp"
+
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="start"

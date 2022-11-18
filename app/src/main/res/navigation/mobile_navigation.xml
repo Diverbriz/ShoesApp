@@ -20,4 +20,16 @@
         android:label="WebFragment" />
     <action android:id="@+id/action_global_signupTabFragment" app:destination="@id/signupTabFragment" />
     <action android:id="@+id/action_global_loginTabFragment2" app:destination="@id/loginTabFragment2" /><action android:id="@+id/action_global_webFragment" app:destination="@id/webFragment"/>
+    <fragment
+        android:id="@+id/authViewPager"
+        android:name="com.example.shoesapp.view.ui.login_activity.fragments.AuthViewPager"
+        android:label="AuthViewPager" /><action android:id="@+id/action_global_authViewPager" app:destination="@id/authViewPager"/>
+    <activity
+        android:id="@+id/webViewActivity"
+        android:name="com.example.shoesapp.view.ui.login_activity.WebViewActivity"
+        android:label="activity_web_view"
+        tools:layout="@layout/activity_web_view" />
+    <action android:id="@+id/action_global_webView" app:destination="@id/webViewActivity" />
+
+
 </navigation>

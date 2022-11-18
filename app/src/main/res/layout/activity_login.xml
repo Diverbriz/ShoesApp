@@ -32,9 +32,22 @@
         app:layout_constraintVertical_bias="1"
         android:background="@drawable/view_bg">
 
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/nav_host_fragment"
-            android:name="androidx.navigation.fragment.NavHostFragment"
+<!--        <androidx.fragment.app.FragmentContainerView-->
+<!--            android:id="@+id/nav_host_fragment"-->
+<!--            android:name="androidx.navigation.fragment.NavHostFragment"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0dp"-->
+<!--            app:layout_constraintVertical_bias="0"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHeight_percent=".7"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/tab_layout"-->
+<!--            app:defaultNavHost="true"-->
+<!--            app:navGraph="@navigation/mobile_navigation"-->
+<!--            />-->
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/view_pager"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintVertical_bias="0"
@@ -42,10 +55,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent=".7"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tab_layout"
-            app:defaultNavHost="true"
-            app:navGraph="@navigation/mobile_navigation"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/tab_layout" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_layout"
