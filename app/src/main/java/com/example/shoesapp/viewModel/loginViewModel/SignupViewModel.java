@@ -13,10 +13,15 @@ import com.example.shoesapp.Presentation.Repository.Model.DataModel;
 import com.example.shoesapp.Presentation.Repository.Model.Support;
 import com.example.shoesapp.Presentation.Repository.network.Methods;
 import com.example.shoesapp.Presentation.Repository.network.RetrofitClient;
+import com.example.shoesapp.Presentation.Repository.network.firebase.FirebaseAuthProvider;
 import com.example.shoesapp.Presentation.Repository.network.repositories.UserRepository;
 import com.example.shoesapp.Presentation.Repository.network.retrofit.model.UserModel;
 import com.example.shoesapp.view.ui.login_activity.model.Person;
 import com.example.shoesapp.view.ui.login_activity.model.RegistrationResponse;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 
@@ -28,6 +33,7 @@ public class SignupViewModel extends ViewModel {
 
     private RegistrationResponse token;
     private MutableLiveData<RegistrationResponse> responseReg = new MutableLiveData<>();
+
     private Methods methods = RetrofitClient.createService(Methods.class);
     public void getAllUsers(){
         Call<UserModel> call = methods.getAllUsers("2");
@@ -54,7 +60,29 @@ public class SignupViewModel extends ViewModel {
                 Log.e(TAG, "On Error Response data:" + call.request());
             }
         });
+    }
 
+    public void signUpFirebaseEmailAndPassword(String email, String password){
+        FirebaseAuthProvider.getmAuth().createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()){
+                            Log.d(TAG, "createUserWithEmail:success");
+                            System.out.println(task.getResult());
+                            FirebaseUser user = FirebaseAuthProvider.getmAuth().getCurrentUser();
+
+                            updateUI();
+                        } else {
+
+                        }
+                    }
+
+                });
+    }
+
+    private void updateUI() {
+        System.out.println("Update UI");
     }
 
     public LiveData<RegistrationResponse> getResponse(){

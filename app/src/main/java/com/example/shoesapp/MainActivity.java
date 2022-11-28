@@ -16,6 +16,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 
+import com.example.shoesapp.Presentation.Repository.network.vk.VK_API_Logic;
 import com.example.shoesapp.databinding.ActivityMainBinding;
 import com.example.shoesapp.view.ui.login_activity.LoginActivity;
 import com.google.android.material.navigation.NavigationView;
@@ -28,12 +29,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public NavController getNavController(){
         return navController;
     }
-
+    private String token;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ServiceLocator.getInstance().initBase(getApplication());
-
         binding = ActivityMainBinding.inflate(getLayoutInflater());
 
         setContentView(binding.getRoot());
@@ -64,8 +64,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //        navigationView = binding.navView;
         if(getIntent().getExtras() != null){
             Bundle arg = getIntent().getExtras();
-            out.println("Get Current Email " + arg.get("profile").toString());
+            out.println(arg.get("token").toString());
+            token = arg.get("token").toString();
+            ServiceLocator.getInstance().getVK_API()
+                    .getProfile(token, this);
         }
+
+
     }
 
     @Override
@@ -86,15 +91,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 out.println("Home");
                 break;
             case R.id.navigation_profile:
-//                getSupportFragmentManager().beginTransaction().replace(
-//                        R.id.frame_layout,
-//                        new LoginFragment()
-//                ).commit();
-
                 Intent myIntent = new Intent(MainActivity.this,
                         LoginActivity.class);
-                 //Optional parameters
-                MainActivity.this.startActivity(myIntent);
+                startActivity(myIntent);
                 break;
         }
         return true;

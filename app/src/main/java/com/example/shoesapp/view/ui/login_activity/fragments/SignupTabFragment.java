@@ -26,6 +26,7 @@ import com.google.gson.Gson;
 public class SignupTabFragment extends Fragment {
     private RegistrationTabFragmentBinding mBinding;
     private SignupViewModel mViewModel;
+    private final String TAG = "SignUpFragment";
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -35,15 +36,16 @@ public class SignupTabFragment extends Fragment {
             Person person = new Person();
             person.setEmail(mBinding.emailEdit.getText().toString());
             person.setPassword(mBinding.passwordEdit.getText().toString());
-
-            mViewModel.addUser(person).observe(getViewLifecycleOwner(), user -> {
-                out.println(user.getEmail() + "   " + user.getPassword());
-                Gson gson = new Gson();
-
-                Intent intent = new Intent(getContext(), MainActivity.class);
-                intent.putExtra("profile", user.getEmail());
-                startActivity(intent);
-            });
+            Log.e(TAG, person.toString());
+            mViewModel.signUpFirebaseEmailAndPassword(person.getEmail(), person.getPassword());
+//            mViewModel.addUser(person).observe(getViewLifecycleOwner(), user -> {
+//                out.println(user.getEmail() + "   " + user.getPassword());
+//                Gson gson = new Gson();
+//
+//                Intent intent = new Intent(getContext(), MainActivity.class);
+//                intent.putExtra("profile", user.getEmail());
+//                startActivity(intent);
+//            });
 
         });
         return mBinding.getRoot();

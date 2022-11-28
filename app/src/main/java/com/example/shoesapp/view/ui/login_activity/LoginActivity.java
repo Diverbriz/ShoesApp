@@ -28,8 +28,9 @@ import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
-    private String urlVkOauth = "https://oauth.vk.com/authorize?client_id=51479013&redirect_uri=https://oauth.vk.com/blank.html&display=mobile";
-
+    private String urlVkOauth = "https://oauth.vk.com/authorize?client_id=51479013&scope=email&redirect_uri=https://oauth.vk.com/blank.html&display=mobile&response_type=token&scope=offline, email";
+//    https://oauth.vk.com/authorize?client_id=51479013&scope=email&redirect_uri=https://oauth.vk.com/blank.html&display=mobile&response_type=token&scope=offline, email
+//    https://oauth.vk.com/authorize?client_id=51479013&redirect_uri=https://oauth.vk.com/blank.html&display=mobile
     private WebFragmentBinding webBinding;
 //    private ViewPager2 viewPager2;
     private ActivityLoginBinding mBinding;
@@ -102,9 +103,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 //                System.out.println("Tab reselected" + tab.getPosition());
 //            }
 //        });
-
-
-
         mBinding.fabVk.setOnClickListener(this);
         mBinding.fabFirebase.setOnClickListener(this);
         mBinding.fabGmail.setOnClickListener(this);
@@ -129,17 +127,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.fab_vk:
                 Log.e(TAG, "Лог для Vk провайдера ");
-//                Bundle bundle = new Bundle();
-//                        bundle.putString("url", urlVkOauth);
-                                //                webBinding.Web.loadUrl(bundle.getString("url"));
-//                        Navigation.findNavController(mBinding.navHostFragment)
-//                            .navigate(R.id.action_global_webView, bundle);
+                Bundle bundle = new Bundle();
+                        bundle.putString("url", urlVkOauth);
+//                      webBinding.Web.loadUrl(bundle.getString("url"));
+
 //51479013 client_id ShoeApp (7975999)
-                // создание объекта Intent для запуска SecondActivity
                 Intent intent = new Intent(this, WebViewActivity.class);
-// передача объекта с ключом "hello" и значением "Hello World"
                 intent.putExtra("url", urlVkOauth);
-// запуск SecondActivity
                 startActivity(intent);
                 break;
             case R.id.fab_gmail:
